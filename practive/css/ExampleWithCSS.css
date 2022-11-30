@@ -1,0 +1,18 @@
+.left{
+    flex: 0.5;
+    height: 100px;
+    background-color: brown;
+    color: blue;
+    text-align: center;
+    border: 1px solid red;
+}
+.right{
+    flex: 0.5;
+    height: 100px;
+    background-color: blue;
+    color: brown;
+    text-align: center;
+}
+body{
+    margin: 0px;
+}
