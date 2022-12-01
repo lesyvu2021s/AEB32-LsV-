@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.wrap{
+    margin: 0 auto;
+    width: 980px;
+    text-align: center;
+    color: antiquewhite;
+}
+
+.header{
+    height: 140px;
+    background-color: #0d7963;
+    margin-bottom: 15px;
+
+}
+
+.sidebar{
+    width: 275px;
+    height: 450px;
+    float: left;
+    background-color: #0d7963;  
+}
+.content{
+    width: 690px;
+    height: 450px;
+    float: right;
+    background-color: #0d7963;
+}
+.footer{
+    height: 70px;
+    margin-top: 15px;
+    background-color: #0d7963;
+
+}
+.clear{
+    clear: both;
+}
