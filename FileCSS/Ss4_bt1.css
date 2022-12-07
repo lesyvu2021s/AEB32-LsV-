@@ -1,0 +1,92 @@
+body{
+    line-height: 1.5;
+    font-size: 16px;
+}
+.header_left{
+    background-color: black;
+    color: aliceblue;
+    font-size: 35px;
+    padding-top: 35px;
+
+}
+h1{
+    margin-left: 78px;
+    color: gainsboro;
+    font-family: auto;
+}
+.author p{
+    padding-left: 145px;
+    padding-top: 18px;
+    margin-top: -36px;
+    margin-left: -67px;
+    color: gainsboro;
+}
+.content_left{
+    background-color: black;
+    height: auto;
+
+}
+
+img{
+    vertical-align: middle;
+    width: 215px;
+    height: 215px;
+    margin-top: 20px;
+
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+.profile{
+    color: white;
+}
+.content{
+    display: flex;
+
+}
+.content_left_flex{
+    flex: 0.3;
+    text-align: center;
+}
+.content_right_flex{
+    flex: 0.7;
+
+}
+.education1{
+    margin-top: 9px;
+}
+.profskill {
+    display: flex;
+    height: 20px;
+    width: 300px;
+}
+.prof_left{
+    flex: 0.8;
+    background-color: black;
+}
+.prof_right{
+    flex: 0.2;
+    background-color: gray;
+}
+.illustructor{
+    margin-top: 18px;
+    display: flex;
+    height: 20px;
+    width: 300px;
+    margin-bottom: 18px;
+}
+.ill_left{
+    flex: 0.6;
+    background-color: black;
+}
+.ill_right{
+    flex: 0.4;
+    background-color: gray;
+}
+.content_right_flex h6,p {
+    color: darkgrey;
+    
+}
+span {
+    margin-left: 15px;
+}
+
