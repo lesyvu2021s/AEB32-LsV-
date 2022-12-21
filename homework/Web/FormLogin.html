@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../FileCSS/fileFormLogin.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <iframe src="../Web/navbar.html" frameborder="0" 
+        class="h-33px w-100"
+        ></iframe>
+    </header>
+    <div>
+        <form action="../Web/Page.html" method="post">
+            <div class="imgcontainer">
+              <img src="../../image/photo.png" alt="Avatar" class="avatar">
+            </div>
+          
+            <div class="container">
+              <label for="uname"><b>Username</b></label>
+              <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
+          
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw"  id="psw" required>
+          
+              <button type="submit" id="submit" >Login</button>
+              <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+              </label>
+            </div>
+          
+            <div class="container" style="background-color:#f1f1f1">
+              <button type="button"  class="cancelbtn">Cancel</button>
+              <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+          </form>
+    </div>
+    <div class="footer" >Footer</div>
+
+</body>
+</html>
