@@ -1,7 +1,10 @@
+let urlDetail =  new URLSearchParams(window.location.search);
+let id = urlDetail.get("id");
+console.log(id);
 
 function getUserById(){
     
-    const url = "https://63a2d9de471b38b206fe4923.mockapi.io/users/2"  ; 
+    const url = "https://63a2d9de471b38b206fe4923.mockapi.io/users/" + id ; 
 
     fetch(url , {
         method : "GET"
@@ -27,15 +30,17 @@ function getUserById(){
       />
       <div class="card-body">
           <h5 class="card-title">${user.name}</h5>
-          <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <p class="card-text"> ${user.city}</p>
+          <p class="card-text"> ${user.password}</p>
+          <a onclick ="EditUser(${user.id})" class="btn btn-secondary">Update</a>
       </div>
   </div>
   `;
     }
+}
+function EditUser(id){
+    console.log("update user by id ", id);
+    window.location.href = `./FormLogin.html?id=${id}`;
 }
 
 getUserById();

@@ -1,44 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../FileCSS/fileFormLogin.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../FileCSS/fileFormLogin.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <iframe src="../Web/navbar.html" frameborder="0" 
+      <iframe
+        src="../Web/navbar.html"
+        frameborder="0"
         class="h-33px w-100"
-        ></iframe>
+      ></iframe>
     </header>
     <div>
-        <form action="../Web/Page.html" method="post">
-            <div class="imgcontainer">
-              <img src="../../image/photo.png" alt="Avatar" class="avatar">
-            </div>
-          
-            <div class="container">
-              <label for="uname"><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
-          
-              <label for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw"  id="psw" required>
-          
-              <button type="submit" id="submit" >Login</button>
-              <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember me
-              </label>
-            </div>
-          
-            <div class="container" style="background-color:#f1f1f1">
-              <button type="button"  class="cancelbtn">Cancel</button>
-              <span class="psw">Forgot <a href="#">password?</a></span>
-            </div>
-          </form>
-    </div>
-    <div class="footer" >Footer</div>
+      <form onsubmit="return false">
+        <div class="imgcontainer">
+          <img src="../../image/photo.png" alt="Avatar" class="avatar" />
+        </div>
 
-</body>
+        <div class="container">
+          <label for="uname"><b>Username</b></label>
+          <input
+            type="text"
+            placeholder="Enter Username"
+            name="uname"
+            id="uname"
+            required
+          />
+
+          <label for="psw"><b>Password</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="psw"
+            id="psw"
+            required
+          />
+
+          <button type="submit" id="submit" onclick="handClick()">Login</button>
+        </div>
+
+        <div class="container" style="background-color: #f1f1f1">
+          <button type="button" class="cancelbtn">Cancel</button>
+          <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+      </form>
+    </div>
+    <footer>
+      <iframe
+        src="../Web/footer.html"
+        frameborder="0"
+        class="h-10px w-100"
+      ></iframe>
+    </footer>
+    <script src="../../Project_use_Bootstrap/js/bootstrap.min.js"></script>
+    <script>
+      let user_post = "https://63a2d9de471b38b206fe4923.mockapi.io/users";
+      let urlDetail = new URLSearchParams(window.location.search);
+      let id = urlDetail.get("id");
+
+      function getElementByUser() {
+        fetch(`${user_post}/${id}`, {
+          method: "GET",
+        })
+          .then((Response) => Response.json())
+          .then((data) => {
+            console.log(data);
+            let elmName = document.getElementById("uname");
+            let elmPws = document.getElementById("pws");
+            elmName.value = data.name;
+            elmPws.value = data.password;
+          })
+          .catch((Error) => console.log("Error :", Error));
+      }
+
+      function handClick() {
+        let elmName = document.getElementById("uname");
+        let elmpsw = document.getElementById("psw");
+
+        let user = {
+          name: elmName.value,
+          password: elmpsw.value,
+        };
+        console.log(user);
+        if (id) {
+          updateUser(user);
+        } else {
+          fetch(user_post, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(user),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data);
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        }
+      }
+
+      function updateUser(user) {
+        fetch(`${user_post}/${id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "Application/json" },
+          body: JSON.stringify(user),
+        })
+          .then((Response) => Response.json())
+          .then((data) => {
+            console.log(data);
+          })
+          .catch((Error) => {
+            console.log("Error :", Error);
+          });
+      }
+    </script>
+  </body>
 </html>
