@@ -12,7 +12,8 @@
     background-color: lightpink;
 }
 .content_left a {
-    display: block;
+    font-size: 20px;
+    
 }
 .banner {
     height: 200px;

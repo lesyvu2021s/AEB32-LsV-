@@ -41,20 +41,12 @@ function renderUi(listFlower){
         <input id="tNumber" type="number" value ="2">  
     </td>
     <td>
-       <h4>${totalPrice()}</h4>
+       <h4></h4>
     </td>
    </tr>
     `
 }
-function totalPrice(data){
-    let sum =0;
-    let elmPrice = document.getElementById("tbody-price");
-    let elmNumber = document.getElementById("tNumber");
-    elmPrice.value = data.Price;
-    
-    sum = elmPrice*elmNumber;
-    console.log(sum);
-}
+
 
 AddToCart();
 
