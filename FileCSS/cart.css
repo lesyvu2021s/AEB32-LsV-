@@ -1,0 +1,12 @@
+.tbody-name {
+    text-align: center;
+}
+.tbody-price {
+    text-align: right;
+}
+#tNumber {
+    width: 100px;
+    text-align: center;
+    margin-left: 17px;
+    height: 32px;
+}

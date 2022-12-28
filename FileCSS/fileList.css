@@ -1,5 +1,11 @@
-img {
- height: 300px;
- width: 300px;
- object-fit: contain;
+#div_content img {
+ height: 200px;
+ width: 100%;
+}
+a.btn.btn-danger{
+    margin-right: -28px;
+}
+#div_content {
+    background-color: antiquewhite;
+
 }

@@ -2,7 +2,7 @@ let urlDetail =  new URLSearchParams(window.location.search);
 let id = urlDetail.get("id");
 console.log(id);
 
-function getUserById(){
+function getFlowerById(){
     
     const url = "https://63a2d9de471b38b206fe4923.mockapi.io/users/" + id ; 
 
@@ -16,23 +16,24 @@ function getUserById(){
     })
     .catch(error => console.log("Error : ", error));
 
-    function renderUi(user){
+    function renderUi(flower){
         let elm = document.getElementById("div_content");
     
         elm.innerHTML =
          `
       <div class="card col-4">
       <img
-          src="${user.avatar}"
+          src="${flower.avatar}"
           ,
           class="card-img-top"
           alt="..."
       />
-      <div class="card-body">
-          <h5 class="card-title">${user.name}</h5>
-          <p class="card-text"> ${user.city}</p>
-          <p class="card-text"> ${user.password}</p>
-          <a onclick ="EditUser(${user.id})" class="btn btn-secondary">Update</a>
+      <div class="card-body  ">
+          <h5 class="card-title">${flower.name}</h5>
+          <p class="card-text"> Origin : <i>${flower.city}</i> </p>
+          <p class="card-text"> Price   : ${flower.Price}</p>
+          <p class="card-text"> Số Lượng : ${flower.Quantity}</p>
+          <a onclick ="EditUser(${flower.id})" class="btn btn-secondary">Update</a>
       </div>
   </div>
   `;
@@ -40,7 +41,7 @@ function getUserById(){
 }
 function EditUser(id){
     console.log("update user by id ", id);
-    window.location.href = `./FormLogin.html?id=${id}`;
+    window.location.href = `./FormInput.html?id=${id}`;
 }
 
-getUserById();
+getFlowerById();    

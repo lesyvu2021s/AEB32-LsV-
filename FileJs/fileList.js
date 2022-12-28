@@ -1,10 +1,8 @@
 
 const url = "https://63a2d9de471b38b206fe4923.mockapi.io/users";
-function listUserCard () {
+function listCard () {
     
-    let listUser = [];
-
-    
+    let listFlower = [];
 
     fetch(url)
       .then((Response) => Response.json())
@@ -14,41 +12,41 @@ function listUserCard () {
       })
       .catch((error) => console.log("Error : " , error));
   
-    function formUICard(listUser){
+    function formUICard(listFlower){
          
     let elm = document.getElementById("div_content");
       let resUI = "";
-      for (let index = 0; index < listUser.length; index++) {
-          resUI += formUICard(listUser[index]);
+      for (let index = 0; index < listFlower.length; index++) {
+          resUI += formUICard(listFlower[index]);
     
           
       }
       elm.innerHTML = resUI;
-      return `
-      <div class="card" style="width: 18rem;">
-  <img src="${listUser.avatar}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">${listUser.name}</h5>
-    <p class="card-text">Click để xem chi tiết . </p>
-    <a onclick="handDetail(${listUser.id})" class="btn btn-primary">Detail</a>
-    <a onclick="handUpdate(${listUser.id})" class="btn btn-secondary">Update</a>
-    <a onclick="handDel(${listUser.id})" class="btn  btn-danger">Delete</a>
-  </div>
-</div>
-  `;
- 
+       return `
+       <div class="card" style="width: 16rem;">
+   <img src="${listFlower.avatar}" class="card-img-top" alt="...">
+   <div class="card-body">
+     <h5 class="card-title">${listFlower.name}</h5>
+     <p class="card-text"> Price : <b>${listFlower.Price}</b> $  </p>
+     <p class="card-text"> Quantity : <b>${listFlower.Quantity}</b>  </p>
+     <a onclick="handDetail(${listFlower.id})" class="btn btn-primary">Detail</a>
+     <a onclick="handUpdate(${listFlower.id})" class="btn btn-secondary">Update</a>
+     <a onclick="handDel(${listFlower.id})" class="btn  btn-danger">Delete</a>
+   </div>
+ </div>
+   `; 
   }
   
    }
-   function handDel(userId){
+   function handDel(flowerId){
     console.log("delete user by  id");
-    let user_delete = url + "/" + userId ;
-    fetch(user_delete , {
+    let flower_delete = url + "/" + flowerId ;
+    fetch(flower_delete , {
       method : "DELETE",
     })
     .then((Response) => Response.json())
     .then((data) => {
-      listUserCard();
+      listCard();
     })
     .catch((Error) => {
       console.log("Erorr : " + Error );
@@ -56,20 +54,17 @@ function listUserCard () {
    }
 
 
-   function handDetail(userId){
-    console.log("get user by id" , userId);
-    window.location.href = `./detaiUser.html?id=${userId}`;
+   function handDetail(flowerId){
+    console.log("get user by id" , flowerId);
+    window.location.href = `./detaiFlower.html?id=${flowerId}`;
    }
 
-   function handUpdate(userId){
-    console.log("update user by Id", userId);
-      window.location.href =`./FormLogin.html?id=${userId}`;
+   function handUpdate(flowerId){
+    console.log("update user by Id", flowerId);
+      window.location.href =`./FormInput.html?id=${flowerId}`;
     }
    
-
-
-   
-   listUserCard();
+   listCard();
 
 
 
